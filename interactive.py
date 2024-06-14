@@ -9,7 +9,7 @@ import hou
 import viewerstate.utils as su
 
 class State(object):
-    # set info panel
+    # Set info panel with details about the tool and its controls
     HUD_TEMPLATE = {
         "title": "Lego Builder", "desc": "tool", "icon": "opdef:/Pau::Sop/lego_builder::1.0?IconImage",
         "rows": [
@@ -39,6 +39,7 @@ class State(object):
         self.switch = None
        
     def pointCount(self):
+        """Method to get the current point count from the multiparm."""
         try:
             self.switch = self.node.parm("switch").eval()
             multiparm = self.node.parm(f"points")
@@ -46,7 +47,8 @@ class State(object):
         except:
             return 0
 
-    def start(self):        
+    def start(self):    
+        """Method to start adding a point."""
         if not self.pressed:
             self.scene_viewer.beginStateUndo("Add point")
             self.index = self.pointCount()
@@ -55,6 +57,7 @@ class State(object):
             self.pressed = True
 
     def finish(self):
+        """Method to finish adding a point."""
         if self.pressed:
             self.scene_viewer.endStateUndo()
         self.pressed = False
