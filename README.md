@@ -1,5 +1,6 @@
 # lego-builder
 HDA to create custom lego buildings inside houdini.
+- Demo Video: https://www.linkedin.com/feed/update/urn:li:activity:7183365580425490432/
 
 ### Installation:
 1. Download the `.hda` file and put it in your `otls` directory (on Windows, that's usually `\Documents\houdinixx.x\otls`).
